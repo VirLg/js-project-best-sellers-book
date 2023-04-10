@@ -1,0 +1,9 @@
+.gallery-category{
+    display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.item-category{
+    width: 100px;
+    height: 150px;
+    outline: 1px solid tomato;
+}
