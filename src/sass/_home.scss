@@ -13,7 +13,7 @@
     /* grid-auto-rows: minmax( auto); */
 }
 
-.category {
+.block__category {
 
     height: 600px;
     outline: 1px solid tomato;
@@ -23,7 +23,7 @@
     grid-row-end: 3;
 }
 
-.gallery {
+.block__gallery {
     height: 600px;
     outline: 3px solid teal;
     grid-column-start: 2;
@@ -32,7 +32,7 @@
     grid-row-end: 1;
 }
 
-.books {
+.block__books {
     height: 1200px;
     outline: 2px solid yellow;
     grid-column-start: 2;

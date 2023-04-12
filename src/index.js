@@ -4,52 +4,116 @@ import API from './js/api-allCategory'
 import axios from "axios"
  
 
-const refGall = document.querySelector('.gallery')
+const refBest = document.querySelector('.gallery')
 const refBooks = document.querySelector('.books')
 const refCategory = document.querySelector('.category')
 
 const URL = {
   all:'https://books-backend.p.goit.global/books/category-list',
-  best:'',
-  books:'',
+  best:'https://books-backend.p.goit.global/books/top-books',
+  // books:'https://books-backend.p.goit.global/books/top-books',
 }
+async function getUrl(obj) { 
+  await Object.values(obj).map(el => 
+    api(el)
+   )
 
-async function api(){
-  try{
-    return axios.get(`${URL.all}`)
-  .then(e=>e.data)
+//  return url 
+}
+getUrl(URL)
+
+async function api(curentUrl) {
+ 
+  try {
+    
+    return axios.get(curentUrl)
+      .then(e => murkup(e.data))
   }
-
   catch(e){
     console.log(e);
   }
-
-  return e.data
 }
 
 async function murkup(api) {
+
+ 
+
+  if (!api[0].books) {
     const fetch = await api;
-    console.log(fetch);
+    const markup = await fetch.map(({ list_name }) => {
+      return `
 
-  
-    const markup = await fetch.map( ({list_name})=>{
-    return `
-<ul>
 <li>${list_name}</li>
-</ul>`
+`
+    }).join('')
+    const murkarAllCatrgory = refCategory.insertAdjacentHTML('beforeend', markup)
+  }
+  else {
+    const fetch = await api;
+    const markup = await fetch.map(e => Object.values(e)[1].map(({ book_uri, book_image,list_name }) => {
+      return `
 
-}).join('')
-const murkarAllCatrgory = refCategory.insertAdjacentHTML('beforeend',markup)
+      
+<div class="photo-card">
+          <div class="thumb">
+          <a href="${book_uri}"><img src="${book_image}" alt="" title="" loading="lazy"/></a> 
+          </div>
+
+           <p class="info-item">
+            <b>Likes: ${list_name}</b>
+          </p>
+          </div>
+          </div>
+
+`
+    }).join(''))
+    const murkarBest = refBest.insertAdjacentHTML('beforeend', markup)
+  }
+ 
 }
-
-murkup(api())
-
+    
 
 
 
 
 
+// ====================================================
 
+// const refCategory = document.querySelector('.category')
+// // const refGall = document.querySelector('.gallery')
+// const URL = {
+//   all:'https://books-backend.p.goit.global/books/top-books',
+//   best:'',
+//   books:'',
+// }
+
+
+// async function api(){
+//   try{
+//     return axios.get('https://books-backend.p.goit.global/books/top-books')
+//   .then(e=>e.data)
+//   }
+
+//   catch(e){
+//     console.log(e);
+//   }
+//   console.log(e.data);
+//   return e.data
+// }
+
+// async function murkup(api) {
+//    const fetch = await api;
+// console.log(await api);
+// const markup = await fetch.map( ({list_name})=>{
+//     return `
+
+// <li>${list_name}</li>
+// `
+
+// }).join('')
+// const murkarAllCatrgory = refCategory.insertAdjacentHTML('beforeend',markup)
+// }
+// murkup(api())
 
 
 
