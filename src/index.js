@@ -54,7 +54,7 @@ async function murkup(api) {
       return `
 
       
-<div class="photo-card">
+<div class="book-card__home">
           <div class="thumb__home">
           <a href="${book_uri}"><img src="${book_image}" alt="" title="" loading="lazy"/></a> 
           </div>
