@@ -60,7 +60,7 @@ async function murkup(api) {
           </div>
 
            <p class="info-item">
-            <b>Likes: ${list_name}</b>
+            <b>${list_name}</b>
           </p>
           </div>
           </div>
