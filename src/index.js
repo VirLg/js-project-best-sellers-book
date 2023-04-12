@@ -4,9 +4,9 @@ import API from './js/api-allCategory'
 import axios from "axios"
  
 
-const refBest = document.querySelector('.gallery')
-const refBooks = document.querySelector('.books')
-const refCategory = document.querySelector('.category')
+const refBest = document.querySelector('.gallery__home')
+const refBooks = document.querySelector('.books__home')
+const refCategory = document.querySelector('.category__home')
 
 const URL = {
   all:'https://books-backend.p.goit.global/books/category-list',
@@ -55,7 +55,7 @@ async function murkup(api) {
 
       
 <div class="photo-card">
-          <div class="thumb">
+          <div class="thumb__home">
           <a href="${book_uri}"><img src="${book_image}" alt="" title="" loading="lazy"/></a> 
           </div>
 
