@@ -1,0 +1,43 @@
+.section {
+    width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    width: 1280;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    /* grid-auto-rows: minmax( auto); */
+}
+
+.category {
+
+    height: 600px;
+    outline: 1px solid tomato;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.gallery {
+    height: 600px;
+    outline: 3px solid teal;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.books {
+    height: 1200px;
+    outline: 2px solid yellow;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+}
