@@ -38,7 +38,7 @@ async function murkup(api) {
 
  
 
-  if (!api[0].books__home) {
+  if (!api[0].books) {
     const fetch = await api;
     const markup = await fetch.map(({ list_name }) => {
       return `
